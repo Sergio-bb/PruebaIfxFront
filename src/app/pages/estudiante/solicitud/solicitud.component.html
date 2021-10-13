@@ -1,0 +1,49 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Hogwarts </mat-card-title>
+    <mat-card-subtitle>Solicitud de ingreso </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form id="solicitud-form" #lForm="ngForm" [formGroup]="solicitud" (ngSubmit)="enviarSolicitud()" novalidate>
+      <mat-form-field style="width: 100%; margin-bottom: 10px;">
+        <mat-label>Nombre</mat-label>
+        <input matInput type="text" formControlName="name" placeholder="Nombre" />
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Especie</mat-label>
+        <input matInput type="text" formControlName="species" placeholder="Especie" />
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Genero</mat-label>
+        <mat-select matInput formControlName="gender" placeholder="Seleccione un genero">
+          <mat-option value="male">Masculino</mat-option>
+          <mat-option value="female">Femenino</mat-option>
+          <mat-option value="other">Otro</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha de nacimiento</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Mago</mat-label>        
+        <input matInput type="text" formControlName="wizard" placeholder="Eres mago?" />        
+      </mat-form-field>
+      <mat-form-field style="width: 100%;">
+        <mat-label>Ascendencia</mat-label>
+        <input matInput type="text" formControlName="ancestry" placeholder="Ascendencia" />
+      </mat-form-field>      
+      
+    </form>
+  </mat-card-content>
+  <mat-card-actions  style="align-items: center;">
+    <button   mat-raised-button  type="submit" color="primary" (click)="enviarSolicitud()">Enviar</button>
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-card-actions>
+  <mat-card-footer>
+  </mat-card-footer>
+</mat-card>
